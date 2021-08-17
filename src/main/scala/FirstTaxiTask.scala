@@ -8,6 +8,8 @@ object FirstTaxiTask extends App{
     .master("local[4]")
     .appName("SparkByExamples.com")
     .getOrCreate()
+
+  spark.conf.set("spark.sql.shuffle.partitions", "2")
   spark.sparkContext.setLogLevel("ERROR")
   import spark.implicits._
 
